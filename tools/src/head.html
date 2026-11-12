@@ -1,0 +1,174 @@
+<title>David Évora · Engenharia de Software · Dados · IA</title>
+<meta name="description" content="David Évora, estudante de Ciência da Computação na UVV em Vila Velha (ES). Projetos de dados e IA com repositório público: InfoFrota, NASA C-MAPSS e SGTCC." data-en="David Évora, a Computer Science student at UVV in Vila Velha, Brazil. Data and AI projects with public repositories: InfoFrota, NASA C-MAPSS and SGTCC.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="David Évora · Engenharia de Software · Dados · IA" data-en="David Évora · Software Engineering · Data · AI">
+<meta property="og:description" content="Projetos de dados e IA com repositório público e limites declarados: InfoFrota, NASA C-MAPSS e SGTCC." data-en="Data and AI projects with public repositories and stated limits: InfoFrota, NASA C-MAPSS and SGTCC.">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#eef0f3">
+<meta name="site-kind" content="other">
+<meta name="page-type" content="service">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"David Évora","jobTitle":"Estudante de Ciência da Computação","affiliation":{"@type":"CollegeOrUniversity","name":"Universidade Vila Velha"},"address":{"@type":"PostalAddress","addressLocality":"Vila Velha","addressRegion":"ES","addressCountry":"BR"},"sameAs":["https://github.com/David-Evora","https://www.linkedin.com/in/david-evora/","https://huggingface.co/David-Evora","https://www.kaggle.com/davidevora"]}</script>
+<script>
+/* idioma e tema antes da primeira pintura: a escolha lembrada, senão português e o tema do sistema */
+(function () {
+  var r = document.documentElement, l = "pt", t = "";
+  try { l = localStorage.getItem("de-lang") === "en" ? "en" : "pt"; t = localStorage.getItem("de-theme") || ""; } catch (e) {}
+  r.setAttribute("data-lang", l);
+  r.lang = l === "en" ? "en" : "pt-BR";
+  if (t === "dark" || t === "light") r.setAttribute("data-theme", t);
+})();
+</script>
+<link rel="stylesheet" href="assets/system.css">
+<link rel="stylesheet" href="assets/ui/cards.css">
+<link rel="stylesheet" href="assets/motion/motion.css">
+<link rel="stylesheet" href="assets/backgrounds/backgrounds.css">
+<link rel="stylesheet" href="assets/layout/layout.css">
+<link rel="stylesheet" href="assets/icons/icon.css">
+<style>
+@@FONTS@@
+/* Paleta cool-grey-cobalt (taste-skill), claro. O tema escuro é desenhado à parte, abaixo. */
+:root {
+  --p-bg: #eef0f3; --p-surface: #e2e5ea; --p-ink: #0b0c0e; --p-muted: #5d6470;
+  --p-accent: #1f2de6; --p-accent-ink: #ffffff; --p-action: #1f2de6; --p-action-ink: #ffffff;
+  --p-inv-bg: #0b0c0e; --p-inv-surface: #17181a; --p-inv-ink: #eef0f3; --p-inv-muted: #8e8f92;
+  --p-inv-accent: #eef0f3; --p-inv-accent-ink: #0b0c0e; --p-inv-action: #eef0f3; --p-inv-action-ink: #0b0c0e;
+  --font-display: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-text: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --display-weight: 400; --display-tracking: -0.03em; --display-tracking-xl: -0.038em;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --p-bg: #0d0e10; --p-surface: #181a1d; --p-ink: #eef0f3; --p-muted: #9ea3ad;
+    --p-accent: #8d98ff; --p-accent-ink: #0b0c0e; --p-action: #8d98ff; --p-action-ink: #0b0c0e;
+    --p-inv-bg: #eef0f3; --p-inv-surface: #e2e5ea; --p-inv-ink: #0b0c0e; --p-inv-muted: #5d6470;
+    --p-inv-accent: #1f2de6; --p-inv-accent-ink: #ffffff; --p-inv-action: #1f2de6; --p-inv-action-ink: #ffffff;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --p-bg: #0d0e10; --p-surface: #181a1d; --p-ink: #eef0f3; --p-muted: #9ea3ad;
+  --p-accent: #8d98ff; --p-accent-ink: #0b0c0e; --p-action: #8d98ff; --p-action-ink: #0b0c0e;
+  --p-inv-bg: #eef0f3; --p-inv-surface: #e2e5ea; --p-inv-ink: #0b0c0e; --p-inv-muted: #5d6470;
+  --p-inv-accent: #1f2de6; --p-inv-accent-ink: #ffffff; --p-inv-action: #1f2de6; --p-inv-action-ink: #ffffff;
+  color-scheme: dark;
+}
+/* superfícies do navegador no tema do site */
+::selection { background: var(--accent); color: var(--accent-ink); }
+html { accent-color: var(--p-action); scrollbar-color: color-mix(in oklab, var(--p-ink) 30%, transparent) var(--p-bg); }
+body { background: var(--p-bg); color: var(--p-ink); }
+
+/* idioma: um dos dois textos fica à vista */
+html[data-lang="en"] :is(span, tspan)[lang="pt-BR"], html:not([data-lang="en"]) :is(span, tspan)[lang="en"] { display: none; }
+
+/* barra: idioma e tema */
+.nav__tools { display: inline-flex; align-items: center; gap: var(--s-1); }
+.tool { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; height: 44px; padding: 0 var(--s-3); border: 0; border-radius: var(--r-md);
+        background: transparent; color: var(--ink); font: 500 var(--t-small)/1 var(--font-text); cursor: pointer; }
+.tool:hover { background: color-mix(in oklab, var(--ink) 8%, transparent); }
+.tool svg { width: 20px; height: 20px; }
+.tool .i-sun { display: none; }
+:root[data-theme="dark"] .tool .i-sun { display: block; }
+:root[data-theme="dark"] .tool .i-moon { display: none; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .tool .i-sun { display: block; }
+  :root:not([data-theme="light"]) .tool .i-moon { display: none; }
+}
+
+/* hero: o retrato corta pelo rosto */
+.hero__media > img { object-position: var(--ly-pos, 50% 20%); }
+.hero__meta { font-size: var(--t-small); color: var(--muted); }
+
+/* seções: foto ao lado das linhas */
+.side-photo { margin: 0; border-radius: var(--r-lg); overflow: hidden; height: min(560px, var(--ly-fit)); background: var(--surface); }
+.side-photo > img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.shot { margin: 0; border-radius: var(--r-lg); overflow: hidden; background: var(--surface); box-shadow: 0 0 0 1px var(--line); }
+.shot > img, .shot > a > img { display: block; width: 100%; height: auto; }
+.shot > a { display: block; }
+.rows .rows__name small { display: block; font-weight: 400; color: var(--muted); font-size: var(--t-small); margin-top: var(--s-1); }
+.rows a:not(.btn), .links a, .section-head a { color: var(--action); text-decoration: underline; text-decoration-color: color-mix(in oklab, var(--action) 40%, transparent); text-underline-offset: 3px; }
+.rows a:not(.btn):hover, .links a:hover, .section-head a:hover { text-decoration-color: currentColor; }
+.links { display: flex; flex-wrap: wrap; gap: var(--s-2) var(--s-5); font-size: var(--t-small); margin-top: var(--s-5); }
+.rows small a { white-space: nowrap; }
+.note { font-size: var(--t-small); color: var(--muted); max-width: 56ch; }
+.note + .note { margin-top: var(--s-3); }
+.stack-notes { display: grid; gap: var(--s-4); margin-top: var(--s-6); }
+.shot--pad { padding: var(--s-6); margin-bottom: var(--s-7); }
+.dg { display: block; width: 100%; max-width: 440px; height: auto; }
+.dg__boxes rect { fill: var(--bg); stroke: color-mix(in oklab, var(--ink) 22%, transparent); stroke-width: 1; }
+.dg__arrows path { fill: none; stroke: var(--muted); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.dg__text text { fill: var(--ink); font: 500 15px var(--font-text); }
+.dg__notes text { fill: var(--muted); font: 400 13px var(--font-text); }
+/* barra: a seção em que o leitor está */
+.nav__link[aria-current="location"]::after { content: ""; position: absolute; left: var(--s-3); right: var(--s-3); bottom: -2px; height: 2px; border-radius: 2px; background: currentColor; }
+/* celular: todo link e botão fora de texto corrido com 44 px de altura */
+@media (max-width: 767px) {
+  .rows__value { display: inline-flex; flex-wrap: wrap; gap: 0 var(--s-3); }
+  .rows__value a, .links a, .rows small a, .copy, .footer li > a { display: inline-flex; align-items: center; gap: 0.35em; min-height: 44px; }
+  .sep { display: none; }
+  .links { gap: 0 var(--s-5); }
+  .side-photo, .shot { margin-top: var(--s-7); }
+  .shot--pad { margin-block: var(--s-5); }
+  /* alturas no celular: até 1,5 tela, ou entre 1,9 e 2 telas, para a seção seguinte não aparecer na tela */
+  .side-photo { height: min(100vw - 2rem, 380px); }
+  #infofrota-fluxo .mo-pc__steps { gap: var(--s-8); }
+  /* gráfico de três painéis: legível em largura de 1060 px, rolagem lateral dentro da própria figura */
+  .shot--scroll { overflow-x: auto; }
+  .shot--scroll > a { min-width: 1060px; }
+}
+
+/* barras de comparação: o dado desenhado, sem enfeite */
+.bars { display: grid; gap: var(--s-6); }
+.bars > li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--s-2) var(--s-5); align-items: baseline; }
+.bars__name { font-weight: 500; font-size: var(--t-lead, 1.125rem); }
+.bars__value { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.bars__track { grid-column: 1 / -1; height: 14px; border-radius: 99px; background: var(--surface); overflow: hidden; }
+.bars__track > i { display: block; height: 100%; width: var(--w); border-radius: inherit; background: color-mix(in oklab, var(--ink) 38%, var(--bg)); }
+.bars > li.is-best .bars__track > i { background: var(--accent); }
+.bars-cap { font-size: var(--t-small); margin-top: var(--s-5); }
+
+/* InfoFrota: passos fixos com capturas de tela na proporção original, sem cortar as bordas */
+[data-moment="pinned-chapters"] .mo-pc__visual > img { aspect-ratio: 1600 / 939; object-position: top left; }
+[data-moment="pinned-chapters"].is-live .mo-pc__visuals { aspect-ratio: 1600 / 939; }
+[data-moment="pinned-chapters"] .mo-pc__visual { box-shadow: 0 0 0 1px var(--line); }
+@media (min-width: 640px) { [data-moment="pinned-chapters"]:not(.is-live) .mo-pc__visual > img { max-height: none; } }
+
+/* conquistas: a foto que se revela, da altura do texto ao lado */
+.develop { margin: 0; border-radius: var(--r-lg); overflow: hidden; height: min(560px, var(--ly-fit)); }
+.develop > img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 45%; }
+/* tablet e celular: a foto some e cada seção fica em 1 ou 2 telas; o gráfico e as listas seguem */
+@media (max-width: 1199px) { .develop { display: none; } }
+@media (min-width: 1024px) and (max-width: 1199px) { #conquistas .grid--top > .span-6:first-child { grid-column: 1 / -1; } }
+@media (min-width: 768px) and (max-width: 1023px) { #infofrota-fluxo .mo-pc__steps { gap: var(--s-4); } }
+
+/* contato no rodapé */
+.copy { margin-left: var(--s-2); height: 32px; padding: 0 var(--s-3); border: 1px solid var(--line-strong); border-radius: var(--r-sm, 6px); background: transparent; color: var(--ink); font: 500 var(--t-label)/1 var(--font-text); cursor: pointer; }
+.copy:hover { background: color-mix(in oklab, var(--ink) 8%, transparent); }
+.copy.is-copied { border-color: var(--action); color: var(--action); }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+/* capturas que existem em claro e escuro: a do tema ativo (depois das regras de imagem, para vencer o empate) */
+.shot img.t-dark, img.t-dark { display: none; }
+:root[data-theme="dark"] img.t-light { display: none; }
+:root[data-theme="dark"] img.t-dark { display: block; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) img.t-light { display: none; }
+  :root:not([data-theme="light"]) img.t-dark { display: block; }
+}
+.pair { display: grid; row-gap: var(--s-8); }
+/* três limitações lado a lado: mesma altura, filetes na mesma linha */
+.pair > .grid--top { align-items: stretch; }
+.pair > .grid > .rows { display: grid; }
+/* botão secundário tonal: contorno em tinta, para não se confundir com o fundo (1,22:1 sem ele) */
+html[data-buttons="tonal"] .btn--secondary, html[data-buttons="tonal"] .btn--secondary:hover { border-color: var(--ink); }
+/* títulos sem hifenização automática ("engi-neering"); a borda do passo ativo do fluxo fica em 1px */
+h1, h2, h3 { hyphens: manual; text-wrap: balance; }
+[data-moment="pinned-chapters"] .mo-pc__step { border-left-width: 1px; }
+/* o kit já dá 16px (--s-4) de respiro; a medida literal só deixa a leitura estática do detector enxergar */
+.rows > li { padding-bottom: 1rem; }
+</style>
+<script>document.documentElement.classList.add('m-enter');setTimeout(()=>document.documentElement.classList.add('m-enter-done'),700)</script>
+<script>document.documentElement.classList.add('mo-js');setTimeout(()=>document.documentElement.classList.add('mo-safe'),2500)</script>
+<link rel="modulepreload" href="assets/moments/moments.js"><link rel="modulepreload" href="assets/moments/lib.js">
+<link rel="modulepreload" href="assets/moments/pinned-chapters/moment.js"><link rel="modulepreload" href="assets/moments/picture-develops/moment.js">

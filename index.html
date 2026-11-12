@@ -1,0 +1,560 @@
+<!doctype html>
+<html lang="pt-BR" data-type="service" data-radius="soft" data-buttons="tonal" data-motion>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='5' fill='%230b0c0e'/%3E%3Cpath fill='%23eef0f3' fill-rule='evenodd' d='M12 4.5a7.5 7.5 0 1 1 0 15 7.5 7.5 0 0 1 0-15zm0 4.1a3.4 3.4 0 1 0 0 6.8 3.4 3.4 0 0 0 0-6.8z'/%3E%3C/svg%3E">
+<title>David Évora · Engenharia de Software · Dados · IA</title>
+<meta name="description" content="David Évora, estudante de Ciência da Computação na UVV em Vila Velha (ES). Projetos de dados e IA com repositório público: InfoFrota, NASA C-MAPSS e SGTCC." data-en="David Évora, a Computer Science student at UVV in Vila Velha, Brazil. Data and AI projects with public repositories: InfoFrota, NASA C-MAPSS and SGTCC.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="David Évora · Engenharia de Software · Dados · IA" data-en="David Évora · Software Engineering · Data · AI">
+<meta property="og:description" content="Projetos de dados e IA com repositório público e limites declarados: InfoFrota, NASA C-MAPSS e SGTCC." data-en="Data and AI projects with public repositories and stated limits: InfoFrota, NASA C-MAPSS and SGTCC.">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#eef0f3">
+<meta name="site-kind" content="other">
+<meta name="page-type" content="service">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"David Évora","jobTitle":"Estudante de Ciência da Computação","affiliation":{"@type":"CollegeOrUniversity","name":"Universidade Vila Velha"},"address":{"@type":"PostalAddress","addressLocality":"Vila Velha","addressRegion":"ES","addressCountry":"BR"},"sameAs":["https://github.com/David-Evora","https://www.linkedin.com/in/david-evora/","https://huggingface.co/David-Evora","https://www.kaggle.com/davidevora"]}</script>
+<script>
+/* idioma e tema antes da primeira pintura: a escolha lembrada, senão português e o tema do sistema */
+(function () {
+  var r = document.documentElement, l = "pt", t = "";
+  try { l = localStorage.getItem("de-lang") === "en" ? "en" : "pt"; t = localStorage.getItem("de-theme") || ""; } catch (e) {}
+  r.setAttribute("data-lang", l);
+  r.lang = l === "en" ? "en" : "pt-BR";
+  if (t === "dark" || t === "light") r.setAttribute("data-theme", t);
+})();
+</script>
+<link rel="stylesheet" href="assets/system.css">
+<link rel="stylesheet" href="assets/ui/cards.css">
+<link rel="stylesheet" href="assets/motion/motion.css">
+<link rel="stylesheet" href="assets/backgrounds/backgrounds.css">
+<link rel="stylesheet" href="assets/layout/layout.css">
+<link rel="stylesheet" href="assets/icons/icon.css">
+<style>
+@font-face{font-family:"Hanken Grotesk";font-style:normal;font-weight:100 900;font-display:swap;src:url(assets/fonts/hanken-grotesk-latin-wght-normal.woff2) format("woff2")}
+/* Paleta cool-grey-cobalt (taste-skill), claro. O tema escuro é desenhado à parte, abaixo. */
+:root {
+  --p-bg: #eef0f3; --p-surface: #e2e5ea; --p-ink: #0b0c0e; --p-muted: #5d6470;
+  --p-accent: #1f2de6; --p-accent-ink: #ffffff; --p-action: #1f2de6; --p-action-ink: #ffffff;
+  --p-inv-bg: #0b0c0e; --p-inv-surface: #17181a; --p-inv-ink: #eef0f3; --p-inv-muted: #8e8f92;
+  --p-inv-accent: #eef0f3; --p-inv-accent-ink: #0b0c0e; --p-inv-action: #eef0f3; --p-inv-action-ink: #0b0c0e;
+  --font-display: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-text: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --display-weight: 400; --display-tracking: -0.03em; --display-tracking-xl: -0.038em;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --p-bg: #0d0e10; --p-surface: #181a1d; --p-ink: #eef0f3; --p-muted: #9ea3ad;
+    --p-accent: #8d98ff; --p-accent-ink: #0b0c0e; --p-action: #8d98ff; --p-action-ink: #0b0c0e;
+    --p-inv-bg: #eef0f3; --p-inv-surface: #e2e5ea; --p-inv-ink: #0b0c0e; --p-inv-muted: #5d6470;
+    --p-inv-accent: #1f2de6; --p-inv-accent-ink: #ffffff; --p-inv-action: #1f2de6; --p-inv-action-ink: #ffffff;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --p-bg: #0d0e10; --p-surface: #181a1d; --p-ink: #eef0f3; --p-muted: #9ea3ad;
+  --p-accent: #8d98ff; --p-accent-ink: #0b0c0e; --p-action: #8d98ff; --p-action-ink: #0b0c0e;
+  --p-inv-bg: #eef0f3; --p-inv-surface: #e2e5ea; --p-inv-ink: #0b0c0e; --p-inv-muted: #5d6470;
+  --p-inv-accent: #1f2de6; --p-inv-accent-ink: #ffffff; --p-inv-action: #1f2de6; --p-inv-action-ink: #ffffff;
+  color-scheme: dark;
+}
+/* superfícies do navegador no tema do site */
+::selection { background: var(--accent); color: var(--accent-ink); }
+html { accent-color: var(--p-action); scrollbar-color: color-mix(in oklab, var(--p-ink) 30%, transparent) var(--p-bg); }
+body { background: var(--p-bg); color: var(--p-ink); }
+
+/* idioma: um dos dois textos fica à vista */
+html[data-lang="en"] :is(span, tspan)[lang="pt-BR"], html:not([data-lang="en"]) :is(span, tspan)[lang="en"] { display: none; }
+
+/* barra: idioma e tema */
+.nav__tools { display: inline-flex; align-items: center; gap: var(--s-1); }
+.tool { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; height: 44px; padding: 0 var(--s-3); border: 0; border-radius: var(--r-md);
+        background: transparent; color: var(--ink); font: 500 var(--t-small)/1 var(--font-text); cursor: pointer; }
+.tool:hover { background: color-mix(in oklab, var(--ink) 8%, transparent); }
+.tool svg { width: 20px; height: 20px; }
+.tool .i-sun { display: none; }
+:root[data-theme="dark"] .tool .i-sun { display: block; }
+:root[data-theme="dark"] .tool .i-moon { display: none; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .tool .i-sun { display: block; }
+  :root:not([data-theme="light"]) .tool .i-moon { display: none; }
+}
+
+/* hero: o retrato corta pelo rosto */
+.hero__media > img { object-position: var(--ly-pos, 50% 20%); }
+.hero__meta { font-size: var(--t-small); color: var(--muted); }
+
+/* seções: foto ao lado das linhas */
+.side-photo { margin: 0; border-radius: var(--r-lg); overflow: hidden; height: min(560px, var(--ly-fit)); background: var(--surface); }
+.side-photo > img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.shot { margin: 0; border-radius: var(--r-lg); overflow: hidden; background: var(--surface); box-shadow: 0 0 0 1px var(--line); }
+.shot > img, .shot > a > img { display: block; width: 100%; height: auto; }
+.shot > a { display: block; }
+.rows .rows__name small { display: block; font-weight: 400; color: var(--muted); font-size: var(--t-small); margin-top: var(--s-1); }
+.rows a:not(.btn), .links a, .section-head a { color: var(--action); text-decoration: underline; text-decoration-color: color-mix(in oklab, var(--action) 40%, transparent); text-underline-offset: 3px; }
+.rows a:not(.btn):hover, .links a:hover, .section-head a:hover { text-decoration-color: currentColor; }
+.links { display: flex; flex-wrap: wrap; gap: var(--s-2) var(--s-5); font-size: var(--t-small); margin-top: var(--s-5); }
+.rows small a { white-space: nowrap; }
+.note { font-size: var(--t-small); color: var(--muted); max-width: 56ch; }
+.note + .note { margin-top: var(--s-3); }
+.stack-notes { display: grid; gap: var(--s-4); margin-top: var(--s-6); }
+.shot--pad { padding: var(--s-6); margin-bottom: var(--s-7); }
+.dg { display: block; width: 100%; max-width: 440px; height: auto; }
+.dg__boxes rect { fill: var(--bg); stroke: color-mix(in oklab, var(--ink) 22%, transparent); stroke-width: 1; }
+.dg__arrows path { fill: none; stroke: var(--muted); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.dg__text text { fill: var(--ink); font: 500 15px var(--font-text); }
+.dg__notes text { fill: var(--muted); font: 400 13px var(--font-text); }
+/* barra: a seção em que o leitor está */
+.nav__link[aria-current="location"]::after { content: ""; position: absolute; left: var(--s-3); right: var(--s-3); bottom: -2px; height: 2px; border-radius: 2px; background: currentColor; }
+/* celular: todo link e botão fora de texto corrido com 44 px de altura */
+@media (max-width: 767px) {
+  .rows__value { display: inline-flex; flex-wrap: wrap; gap: 0 var(--s-3); }
+  .rows__value a, .links a, .rows small a, .copy, .footer li > a { display: inline-flex; align-items: center; gap: 0.35em; min-height: 44px; }
+  .sep { display: none; }
+  .links { gap: 0 var(--s-5); }
+  .side-photo, .shot { margin-top: var(--s-7); }
+  .shot--pad { margin-block: var(--s-5); }
+  /* alturas no celular: até 1,5 tela, ou entre 1,9 e 2 telas, para a seção seguinte não aparecer na tela */
+  .side-photo { height: min(100vw - 2rem, 380px); }
+  #infofrota-fluxo .mo-pc__steps { gap: var(--s-8); }
+  /* gráfico de três painéis: legível em largura de 1060 px, rolagem lateral dentro da própria figura */
+  .shot--scroll { overflow-x: auto; }
+  .shot--scroll > a { min-width: 1060px; }
+}
+
+/* barras de comparação: o dado desenhado, sem enfeite */
+.bars { display: grid; gap: var(--s-6); }
+.bars > li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--s-2) var(--s-5); align-items: baseline; }
+.bars__name { font-weight: 500; font-size: var(--t-lead, 1.125rem); }
+.bars__value { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.bars__track { grid-column: 1 / -1; height: 14px; border-radius: 99px; background: var(--surface); overflow: hidden; }
+.bars__track > i { display: block; height: 100%; width: var(--w); border-radius: inherit; background: color-mix(in oklab, var(--ink) 38%, var(--bg)); }
+.bars > li.is-best .bars__track > i { background: var(--accent); }
+.bars-cap { font-size: var(--t-small); margin-top: var(--s-5); }
+
+/* InfoFrota: passos fixos com capturas de tela na proporção original, sem cortar as bordas */
+[data-moment="pinned-chapters"] .mo-pc__visual > img { aspect-ratio: 1600 / 939; object-position: top left; }
+[data-moment="pinned-chapters"].is-live .mo-pc__visuals { aspect-ratio: 1600 / 939; }
+[data-moment="pinned-chapters"] .mo-pc__visual { box-shadow: 0 0 0 1px var(--line); }
+@media (min-width: 640px) { [data-moment="pinned-chapters"]:not(.is-live) .mo-pc__visual > img { max-height: none; } }
+
+/* conquistas: a foto que se revela, da altura do texto ao lado */
+.develop { margin: 0; border-radius: var(--r-lg); overflow: hidden; height: min(560px, var(--ly-fit)); }
+.develop > img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 45%; }
+/* tablet e celular: a foto some e cada seção fica em 1 ou 2 telas; o gráfico e as listas seguem */
+@media (max-width: 1199px) { .develop { display: none; } }
+@media (min-width: 1024px) and (max-width: 1199px) { #conquistas .grid--top > .span-6:first-child { grid-column: 1 / -1; } }
+@media (min-width: 768px) and (max-width: 1023px) { #infofrota-fluxo .mo-pc__steps { gap: var(--s-4); } }
+
+/* contato no rodapé */
+.copy { margin-left: var(--s-2); height: 32px; padding: 0 var(--s-3); border: 1px solid var(--line-strong); border-radius: var(--r-sm, 6px); background: transparent; color: var(--ink); font: 500 var(--t-label)/1 var(--font-text); cursor: pointer; }
+.copy:hover { background: color-mix(in oklab, var(--ink) 8%, transparent); }
+.copy.is-copied { border-color: var(--action); color: var(--action); }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+/* capturas que existem em claro e escuro: a do tema ativo (depois das regras de imagem, para vencer o empate) */
+.shot img.t-dark, img.t-dark { display: none; }
+:root[data-theme="dark"] img.t-light { display: none; }
+:root[data-theme="dark"] img.t-dark { display: block; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) img.t-light { display: none; }
+  :root:not([data-theme="light"]) img.t-dark { display: block; }
+}
+.pair { display: grid; row-gap: var(--s-8); }
+/* três limitações lado a lado: mesma altura, filetes na mesma linha */
+.pair > .grid--top { align-items: stretch; }
+.pair > .grid > .rows { display: grid; }
+/* botão secundário tonal: contorno em tinta, para não se confundir com o fundo (1,22:1 sem ele) */
+html[data-buttons="tonal"] .btn--secondary, html[data-buttons="tonal"] .btn--secondary:hover { border-color: var(--ink); }
+/* títulos sem hifenização automática ("engi-neering"); a borda do passo ativo do fluxo fica em 1px */
+h1, h2, h3 { hyphens: manual; text-wrap: balance; }
+[data-moment="pinned-chapters"] .mo-pc__step { border-left-width: 1px; }
+/* o kit já dá 16px (--s-4) de respiro; a medida literal só deixa a leitura estática do detector enxergar */
+.rows > li { padding-bottom: 1rem; }
+</style>
+<script>document.documentElement.classList.add('m-enter');setTimeout(()=>document.documentElement.classList.add('m-enter-done'),700)</script>
+<script>document.documentElement.classList.add('mo-js');setTimeout(()=>document.documentElement.classList.add('mo-safe'),2500)</script>
+<link rel="modulepreload" href="assets/moments/moments.js"><link rel="modulepreload" href="assets/moments/lib.js">
+<link rel="modulepreload" href="assets/moments/pinned-chapters/moment.js"><link rel="modulepreload" href="assets/moments/picture-develops/moment.js">
+
+</head>
+<body id="top">
+<header class="nav nav--centre">
+  <div class="wrap nav__bar">
+    <a class="skip-link" href="#main"><span lang="pt-BR">Ir para o conteúdo</span><span lang="en">Skip to content</span></a>
+    <a class="nav__logo" href="#top"><span class="mark" data-mark="ring" aria-hidden="true"></span>David Évora</a>
+    <nav class="nav__links" aria-label="Principal" data-aria-en="Main">
+      <div class="nav__item"><a class="nav__link" href="#sobre"><span lang="pt-BR">Sobre</span><span lang="en">About</span></a></div>
+      <div class="nav__item"><a class="nav__link" href="#infofrota"><span lang="pt-BR">Projetos</span><span lang="en">Projects</span></a></div>
+      <div class="nav__item"><a class="nav__link" href="#conquistas"><span lang="pt-BR">Conquistas</span><span lang="en">Achievements</span></a></div>
+      <div class="nav__item"><a class="nav__link" href="#contato"><span lang="pt-BR">Contato</span><span lang="en">Contact</span></a></div>
+    </nav>
+    <div class="nav__actions">
+      <div class="nav__tools">
+        <button class="tool" type="button" id="lang-btn" aria-label="Mudar para inglês" data-aria-en="Switch to Portuguese"><span lang="pt-BR">EN</span><span lang="en">PT</span></button>
+        <button class="tool" type="button" id="theme-btn" aria-label="Alternar tema claro e escuro" data-aria-en="Switch between light and dark theme">
+          <svg class="i-moon" viewBox="0 0 20 20" aria-hidden="true"><path d="M16.5 11.6A6.8 6.8 0 0 1 8.4 3.5a7 7 0 1 0 8.1 8.1z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+          <svg class="i-sun" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="3.4" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M10 2.5v2M10 15.5v2M2.5 10h2M15.5 10h2M4.7 4.7l1.4 1.4M13.9 13.9l1.4 1.4M4.7 15.3l1.4-1.4M13.9 6.1l1.4-1.4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+      <a class="btn btn--primary" href="mailto:davievoraqs@gmail.com"><span lang="pt-BR">Enviar e-mail</span><span lang="en">Send email</span></a>
+    </div>
+    <button class="nav__toggle" type="button" aria-expanded="false" aria-label="Menu" data-aria-en="Menu"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M2 5h14M2 13h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero hero--split" data-enter aria-labelledby="hero-h">
+    <div class="wrap"><div class="hero-text grid hero__grid">
+      <div class="hero__text span-5">
+        <h1 id="hero-h"><span lang="pt-BR">Engenharia de software, dados e IA</span><span lang="en">Software engineering, data and AI</span></h1>
+        <p class="hero__lead"><span lang="pt-BR">David Évora, estudante de Ciência da Computação na UVV, em busca de estágio. Construo projetos de dados e IA com repositório público e digo onde cada resultado vale e onde não.</span><span lang="en">David Évora, Computer Science student at UVV, looking for an internship. I build data and AI projects with public repositories, and I say where each result holds and where it does not.</span></p>
+        <div class="btn-row">
+          <a class="btn btn--primary" href="#infofrota"><span lang="pt-BR">Ver projetos</span><span lang="en">See projects</span><svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
+          <a class="btn btn--secondary" href="#conquistas"><span lang="pt-BR">Ver conquistas</span><span lang="en">See achievements</span></a>
+        </div>
+        <p class="hero__meta"><span lang="pt-BR">Vila Velha, ES · Técnico em Automação Industrial pelo SENAI</span><span lang="en">Vila Velha, Brazil · Industrial Automation technician from SENAI</span></p>
+      </div>
+      <div class="hero__media span-6 start-7">
+        <img src="assets/img/hero.webp" srcset="assets/img/hero-480.webp 480w, assets/img/hero-720.webp 720w, assets/img/hero.webp 1040w" sizes="(max-width: 767px) calc(100vw - 48px), 640px" width="1040" height="1549" alt="Retrato de David Évora, de camisa cinza e braços cruzados, diante de um fundo azul-escuro" data-alt-en="Portrait of David Évora in a grey shirt with arms crossed, against a dark blue backdrop" style="--ly-pos: 50% 18%" fetchpriority="high">
+        <div class="ly-float">
+          <div class="ly-float__row"><span>InfoFrota AI</span><span><span lang="pt-BR">dados sintéticos</span><span lang="en">synthetic data</span></span></div>
+          <div class="ly-float__title"><span lang="pt-BR">Text-to-SQL: 36 de 56 no benchmark do projeto, contra 19 do modelo base</span><span lang="en">Text-to-SQL: 36 of 56 on the project's benchmark, against 19 for the base model</span></div>
+        </div>
+      </div>
+    </div></div>
+  </section>
+
+  <section class="section" id="sobre" aria-labelledby="sobre-h">
+    <div class="wrap grid grid--top">
+      <div class="span-6">
+        <div class="section-head">
+          <h2 id="sobre-h"><span lang="pt-BR">Sobre David Évora</span><span lang="en">About David Évora</span></h2>
+          <p><span lang="pt-BR">Curiosidade que vira código. Dados que viram conhecimento. Ideias que viram projetos.</span><span lang="en">Curiosity that turns into code. Data that turns into knowledge. Ideas that turn into projects.</span></p>
+        </div>
+        <ul class="rows">
+          <li><span class="rows__name"><span lang="pt-BR">Software</span><span lang="en">Software</span><small>Python, FastAPI, Java, Spring Boot, Docker</small></span><span class="rows__value"><a href="#infofrota">InfoFrota</a><span class="sep" aria-hidden="true">,</span> <a href="#sgtcc">SGTCC</a></span></li>
+          <li><span class="rows__name"><span lang="pt-BR">Dados</span><span lang="en">Data</span><small>SQL, MySQL, PostgreSQL, Pandas, Power BI</small></span><span class="rows__value"><a href="#infofrota">InfoFrota</a><span class="sep" aria-hidden="true">,</span> <a href="#cmapss">C-MAPSS</a></span></li>
+          <li><span class="rows__name"><span lang="pt-BR">Inteligência artificial</span><span lang="en">Artificial intelligence</span><small>Text-to-SQL, RAG, LoRA, XGBoost, GRU, LSTM</small></span><span class="rows__value"><a href="#validacao"><span lang="pt-BR">56 perguntas</span><span lang="en">56 questions</span></a></span></li>
+        </ul>
+        <p class="note stack-notes"><span lang="pt-BR">Ciência da Computação na Universidade Vila Velha, em andamento. Técnico em Automação Industrial pelo SENAI-ES, que trouxe a base em sensores e sistemas físicos. Português e inglês (B2).</span><span lang="en">Computer Science at Universidade Vila Velha, in progress. Industrial Automation technician from SENAI-ES, which gave me a base in sensors and physical systems. Portuguese and English (B2).</span></p>
+      </div>
+      <figure class="side-photo span-6 start-7"><img src="assets/img/worldskills-competicao.webp" srcset="assets/img/worldskills-competicao-480.webp 480w, assets/img/worldskills-competicao-720.webp 720w, assets/img/worldskills-competicao.webp 900w" sizes="(max-width: 767px) calc(100vw - 48px), 640px" width="900" height="1200" loading="lazy" alt="Competidores de azul em uma estação de automação com esteira, braço robótico e notebook" data-alt-en="Competitors in blue at an automation station with a conveyor, robotic arm and laptop" style="object-position: 50% 40%"></figure>
+    </div>
+  </section>
+
+  <section class="section" id="infofrota" aria-labelledby="infofrota-h">
+    <div class="wrap grid grid--top">
+      <div class="span-6">
+        <div class="section-head">
+          <h2 id="infofrota-h"><span lang="pt-BR">Projeto InfoFrota: inteligência para o transporte coletivo</span><span lang="en">InfoFrota project: intelligence for public transport</span></h2>
+          <p><span lang="pt-BR">Plataforma que junta ocupação, frota, linhas e horários da Grande Vitória. Projeto em equipe; minha parte é o banco MySQL, a interface web e a camada de IA.</span><span lang="en">A platform that brings together occupancy, fleet, lines and schedules for Greater Vitória. A team project; my part is the MySQL database, the web interface and the AI layer.</span></p>
+        </div>
+        <ul class="rows">
+          <li><span class="rows__name"><span lang="pt-BR">Dados sintéticos</span><span lang="en">Synthetic data</span><small><span lang="pt-BR">Frota, viagens, ocupação, clima e alertas são simulados. Só os rótulos das linhas vêm de um conjunto público (CC0).</span><span lang="en">Fleet, trips, occupancy, weather and alerts are simulated. Only the line labels come from a public dataset (CC0).</span></small></span></li>
+          <li><span class="rows__name"><span lang="pt-BR">Projeto independente</span><span lang="en">Independent project</span><small><span lang="pt-BR">Não é um sistema oficial da CETURB/ES e não tem endosso institucional.</span><span lang="en">Not an official CETURB/ES system and has no institutional endorsement.</span></small></span></li>
+          <li><span class="rows__name"><span lang="pt-BR">Contagem embarcada em estudo</span><span lang="en">On-board counting under study</span><small><span lang="pt-BR">Hardware, privacidade e precisão ainda precisam ser validados.</span><span lang="en">Hardware, privacy and accuracy still need to be validated.</span></small></span></li>
+        </ul>
+        <p class="links">
+          <a href="https://david-evora.github.io/InfoFrota/" rel="noopener"><span lang="pt-BR">Site do projeto</span><span lang="en">Project site</span></a>
+          <a href="https://github.com/David-Evora/InfoFrota" rel="noopener"><span lang="pt-BR">Repositório</span><span lang="en">Repository</span></a>
+          <a href="https://www.kaggle.com/code/davidevora/notebook-portifolio-infofrota" rel="noopener"><span lang="pt-BR">Notebook no Kaggle</span><span lang="en">Kaggle notebook</span></a>
+          <a href="https://huggingface.co/David-Evora/infofrota-text2sql-lora" rel="noopener"><span lang="pt-BR">Adaptador LoRA</span><span lang="en">LoRA adapter</span></a>
+          <a href="https://dev.to/david_vora_61c0753239dfd/text-to-sql-em-portugues-com-rag-e-lora-o-que-aprendi-medindo-um-assistente-sobre-dados-sinteticos-46ha" rel="noopener"><span lang="pt-BR">Artigo técnico</span><span lang="en">Technical article</span></a>
+        </p>
+      </div>
+      <figure class="shot span-6 start-7">
+        <a href="https://david-evora.github.io/InfoFrota/" rel="noopener" aria-label="Abrir o site do InfoFrota" data-aria-en="Open the InfoFrota website">
+          <img class="t-light" src="assets/img/infofrota-hero-light.webp" srcset="assets/img/infofrota-hero-light-480.webp 480w, assets/img/infofrota-hero-light-720.webp 720w, assets/img/infofrota-hero-light-1200.webp 1200w, assets/img/infofrota-hero-light.webp 1600w" sizes="(max-width: 767px) calc(100vw - 48px), 640px" width="1600" height="1000" loading="lazy" alt="Página inicial do site do InfoFrota em tema claro, com o título &quot;Transforme dados de frota em inteligência&quot; e uma ilustração de linhas com um alerta crítico" data-alt-en="InfoFrota website home page in light theme, with the headline &quot;Transforme dados de frota em inteligência&quot; and a line illustration with a critical alert">
+          <img class="t-dark" src="assets/img/infofrota-hero-dark.webp" srcset="assets/img/infofrota-hero-dark-480.webp 480w, assets/img/infofrota-hero-dark-720.webp 720w, assets/img/infofrota-hero-dark-1200.webp 1200w, assets/img/infofrota-hero-dark.webp 1600w" sizes="(max-width: 767px) calc(100vw - 48px), 640px" width="1600" height="1000" loading="lazy" alt="Página inicial do site do InfoFrota em tema escuro, com o título &quot;Transforme dados de frota em inteligência&quot; e uma ilustração de linhas com um alerta crítico" data-alt-en="InfoFrota website home page in dark theme, with the headline &quot;Transforme dados de frota em inteligência&quot; and a line illustration with a critical alert">
+        </a>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section" id="infofrota-fluxo" style="--h: 2" data-moment="pinned-chapters" aria-labelledby="fluxo-h">
+    <div class="wrap mo-pc__grid">
+      <div class="mo-pc__text">
+        <h2 id="fluxo-h"><span lang="pt-BR">Do dado sintético ao alerta</span><span lang="en">From synthetic data to the alert</span></h2>
+        <ol class="mo-pc__steps">
+          <li class="mo-pc__step">
+            <h3><span lang="pt-BR">Dados e banco</span><span lang="en">Data and database</span></h3>
+            <p><span lang="pt-BR">O banco operacional foi modelado em MySQL; o módulo de IA usa uma base SQLite sintética.</span><span lang="en">The operational database was modelled in MySQL; the AI module uses a synthetic SQLite base.</span></p>
+            <figure class="mo-pc__visual"><img src="assets/img/infofrota-dados.webp" srcset="assets/img/infofrota-dados-480.webp 480w, assets/img/infofrota-dados-720.webp 720w, assets/img/infofrota-dados-1200.webp 1200w, assets/img/infofrota-dados.webp 1600w" sizes="(max-width: 767px) calc(100vw - 48px), 1280px" width="1600" height="939" loading="lazy" alt="Painel de ocupação por hora do dia e contagem de alertas críticos, com a faixa &quot;dados sintéticos&quot;" data-alt-en="Panel with occupancy by hour of day and a critical-alert count, under a &quot;synthetic data&quot; strip"></figure>
+          </li>
+          <li class="mo-pc__step">
+            <h3><span lang="pt-BR">Text-to-SQL e RAG</span><span lang="en">Text-to-SQL and RAG</span></h3>
+            <p><span lang="pt-BR">Pergunta em português, RAG de esquema, SQL validado e SQLite somente leitura.</span><span lang="en">A question in Portuguese, schema RAG, validated SQL and read-only SQLite.</span></p>
+            <figure class="mo-pc__visual">
+              <img class="t-light" src="assets/img/infofrota-ia-light.webp" srcset="assets/img/infofrota-ia-light-480.webp 480w, assets/img/infofrota-ia-light-720.webp 720w, assets/img/infofrota-ia-light-1200.webp 1200w, assets/img/infofrota-ia-light.webp 1600w" sizes="(max-width: 767px) calc(100vw - 48px), 1280px" width="1600" height="1050" loading="lazy" alt="Seção do assistente de IA do site: pergunta em português, contexto recuperado pelo RAG e SQL gerado, com selo de simulação" data-alt-en="The website's AI assistant section: a question in Portuguese, context retrieved by RAG and generated SQL, with a simulation badge">
+              <img class="t-dark" src="assets/img/infofrota-ia-dark.webp" srcset="assets/img/infofrota-ia-dark-480.webp 480w, assets/img/infofrota-ia-dark-720.webp 720w, assets/img/infofrota-ia-dark-1200.webp 1200w, assets/img/infofrota-ia-dark.webp 1600w" sizes="(max-width: 767px) calc(100vw - 48px), 1280px" width="1600" height="939" loading="lazy" alt="Seção do assistente de IA do site em tema escuro: pergunta em português, contexto recuperado pelo RAG, com selo de simulação" data-alt-en="The website's AI assistant section in dark theme: a question in Portuguese and context retrieved by RAG, with a simulation badge">
+            </figure>
+          </li>
+          <li class="mo-pc__step">
+            <h3><span lang="pt-BR">API e arquitetura</span><span lang="en">API and architecture</span></h3>
+            <p><span lang="pt-BR">FastAPI com /perguntar e /alertas. API e n8n sobem juntos com Docker Compose.</span><span lang="en">FastAPI with /perguntar and /alertas. The API and n8n start together with Docker Compose.</span></p>
+            <figure class="mo-pc__visual"><img src="assets/img/infofrota-tecnologia.webp" srcset="assets/img/infofrota-tecnologia-480.webp 480w, assets/img/infofrota-tecnologia-720.webp 720w, assets/img/infofrota-tecnologia-1200.webp 1200w, assets/img/infofrota-tecnologia.webp 1600w" sizes="(max-width: 767px) calc(100vw - 48px), 1280px" width="1600" height="939" loading="lazy" alt="Diagrama de arquitetura do InfoFrota: gerador sintético, SQLite somente leitura, RAG de esquema, API FastAPI, workflow n8n e, em estudo, captação embarcada" data-alt-en="InfoFrota architecture diagram: synthetic generator, read-only SQLite, schema RAG, FastAPI service, n8n workflow and, under study, on-board capture"></figure>
+          </li>
+          <li class="mo-pc__step">
+            <h3><span lang="pt-BR">Alertas com n8n</span><span lang="en">Alerts with n8n</span></h3>
+            <p><span lang="pt-BR">A cada 5 minutos o n8n filtra os alertas críticos e avisa por webhook.</span><span lang="en">Every 5 minutes n8n filters the critical alerts and notifies by webhook.</span></p>
+            <figure class="mo-pc__visual"><img src="assets/img/infofrota-automacao.webp" srcset="assets/img/infofrota-automacao-480.webp 480w, assets/img/infofrota-automacao-720.webp 720w, assets/img/infofrota-automacao-1200.webp 1200w, assets/img/infofrota-automacao.webp 1600w" sizes="(max-width: 767px) calc(100vw - 48px), 1280px" width="1600" height="939" loading="lazy" alt="Fluxo do n8n em oito etapas, do gatilho de cinco minutos ao registro dos alertas enviados" data-alt-en="n8n flow in eight steps, from the five-minute trigger to logging the alerts sent"></figure>
+          </li>
+        </ol>
+        <p class="links"><a href="https://github.com/David-Evora/InfoFrota" rel="noopener"><span lang="pt-BR">Ver o código do InfoFrota</span><span lang="en">See the InfoFrota code</span></a></p>
+      </div>
+      <div class="mo-pc__visuals frame"></div>
+    </div>
+  </section>
+
+  <section class="section" id="validacao" aria-labelledby="validacao-h">
+    <div class="wrap grid grid--top">
+      <div class="span-6">
+        <div class="section-head">
+          <h2 id="validacao-h"><span lang="pt-BR">O assistente acerta 36 de 56 perguntas</span><span lang="en">The assistant gets 36 of 56 questions right</span></h2>
+          <p><span lang="pt-BR">Benchmark congelado antes de qualquer ajuste, com o modelo base e o LoRA, com e sem RAG. A base é sintética: o número vale para este benchmark e não mede desempenho em operação.</span><span lang="en">A benchmark frozen before any tuning, with the base model and the LoRA, with and without RAG. The data is synthetic: the number holds for this benchmark and does not measure performance in operation.</span></p>
+        </div>
+        <ul class="bars" data-visual aria-label="Acertos em 56 perguntas" data-aria-en="Correct answers out of 56 questions">
+          <li><span class="bars__name"><span lang="pt-BR">Modelo base</span><span lang="en">Base model</span></span><span class="bars__value"><span lang="pt-BR">19 / 56 · 33,9%</span><span lang="en">19 / 56 · 33.9%</span></span><span class="bars__track" aria-hidden="true"><i style="--w:33.9%"></i></span></li>
+          <li><span class="bars__name"><span lang="pt-BR">Base + RAG</span><span lang="en">Base + RAG</span></span><span class="bars__value"><span lang="pt-BR">25 / 56 · 44,6%</span><span lang="en">25 / 56 · 44.6%</span></span><span class="bars__track" aria-hidden="true"><i style="--w:44.6%"></i></span></li>
+          <li class="is-best"><span class="bars__name">LoRA</span><span class="bars__value"><span lang="pt-BR">36 / 56 · 64,3%</span><span lang="en">36 / 56 · 64.3%</span></span><span class="bars__track" aria-hidden="true"><i style="--w:64.3%"></i></span></li>
+          <li class="is-best"><span class="bars__name">LoRA + RAG</span><span class="bars__value"><span lang="pt-BR">36 / 56 · 64,3%</span><span lang="en">36 / 56 · 64.3%</span></span><span class="bars__track" aria-hidden="true"><i style="--w:64.3%"></i></span></li>
+        </ul>
+      </div>
+      <div class="span-6 start-7">
+        <ul class="rows">
+          <li><span class="rows__name"><span lang="pt-BR">Segunda rodada: 39 de 56</span><span lang="en">Second round: 39 of 56</span><small><span lang="pt-BR">Planejada depois de analisar os erros da primeira. A diferença de 3 acertos está dentro do ruído com 56 perguntas.</span><span lang="en">Planned after analysing the first round's errors. The 3-answer gap is within noise at 56 questions.</span></small></span></li>
+          <li><span class="rows__name"><span lang="pt-BR">Nível difícil continua baixo</span><span lang="en">The hard level is still low</span><small><span lang="pt-BR">3 de 15 no melhor caso. A pergunta D06 tem um defeito conhecido na referência, documentado, sem ajuste da pontuação.</span><span lang="en">3 of 15 in the best case. Question D06 has a known defect in its reference, documented, with no score adjustment.</span></small></span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section g2" id="cmapss" style="--hm: 1" aria-labelledby="cmapss-h">
+    <div class="wrap">
+      <div class="grid grid--top">
+        <div class="span-6">
+          <div class="section-head">
+            <h2 id="cmapss-h"><span lang="pt-BR">NASA C-MAPSS: vida útil restante de motores</span><span lang="en">NASA C-MAPSS: remaining useful life of engines</span></h2>
+            <p><span lang="pt-BR">O modelo estima quantos ciclos ainda restam a um motor turbofan a partir de 21 sensores. O XGBoost final erra 10,98 ciclos (RMSE) no teste, em dados simulados.</span><span lang="en">The model estimates how many cycles a turbofan engine has left from 21 sensors. The final XGBoost is off by 10.98 cycles (RMSE) on the test set, on simulated data.</span></p>
+          </div>
+          <p class="links"><a href="https://github.com/David-Evora/cmapss-rul" rel="noopener"><span lang="pt-BR">Repositório cmapss-rul</span><span lang="en">cmapss-rul repository</span></a></p>
+        </div>
+        <div class="span-6 start-7">
+          <ul class="bars" data-visual aria-label="RMSE no teste, em ciclos" data-aria-en="Test RMSE, in cycles">
+            <li><span class="bars__name"><span lang="pt-BR">Regressão linear</span><span lang="en">Linear regression</span></span><span class="bars__value"><span lang="pt-BR">20,82</span><span lang="en">20.82</span></span><span class="bars__track" aria-hidden="true"><i style="--w:100%"></i></span></li>
+            <li><span class="bars__name">Random Forest</span><span class="bars__value"><span lang="pt-BR">17,16</span><span lang="en">17.16</span></span><span class="bars__track" aria-hidden="true"><i style="--w:82.4%"></i></span></li>
+            <li><span class="bars__name">LSTM</span><span class="bars__value"><span lang="pt-BR">13,83</span><span lang="en">13.83</span></span><span class="bars__track" aria-hidden="true"><i style="--w:66.4%"></i></span></li>
+            <li><span class="bars__name">GRU</span><span class="bars__value"><span lang="pt-BR">13,72</span><span lang="en">13.72</span></span><span class="bars__track" aria-hidden="true"><i style="--w:65.9%"></i></span></li>
+            <li class="is-best"><span class="bars__name"><span lang="pt-BR">XGBoost final</span><span lang="en">Final XGBoost</span></span><span class="bars__value"><span lang="pt-BR">10,98</span><span lang="en">10.98</span></span><span class="bars__track" aria-hidden="true"><i style="--w:52.7%"></i></span></li>
+          </ul>
+          <p class="bars-cap"><span lang="pt-BR">RMSE em ciclos, menor é melhor. Dados simulados da NASA, FD001, uma condição de operação; último ciclo de cada um dos 100 motores de teste. XGBoost: 10,98 no teste e 11,15 ± 0,10 na média de sementes.</span><span lang="en">RMSE in cycles, lower is better. Simulated NASA data, FD001, one operating condition; last cycle of each of the 100 test engines. XGBoost: 10.98 on the test set and 11.15 ± 0.10 averaged over seeds.</span></p>
+        </div>
+      </div>
+      <div class="pair">
+        <figure class="shot shot--scroll"><a href="assets/img/cmapss-previsto-vs-real.webp" aria-label="Abrir o gráfico em tamanho inteiro" data-aria-en="Open the chart at full size"><img src="assets/img/cmapss-previsto-vs-real.webp" width="1800" height="527" loading="lazy" alt="Três gráficos: previsto contra real nos 100 motores de teste, histograma dos erros e erro contra a RUL real, em que os pontos se afastam da diagonal para vidas restantes longas" data-alt-en="Three charts: predicted against actual on the 100 test engines, a histogram of errors and error against actual RUL, where the points drift from the diagonal for long remaining lives"></a></figure>
+        <div class="grid grid--top">
+          <ul class="rows span-4"><li><span class="rows__name"><span lang="pt-BR">Dados simulados</span><span lang="en">Simulated data</span><small><span lang="pt-BR">Uma única condição de operação. Isto não é validação em motores reais.</span><span lang="en">A single operating condition. This is not validation on real engines.</span></small></span></li></ul>
+          <ul class="rows span-4 start-5"><li><span class="rows__name"><span lang="pt-BR">GRU e LSTM não superaram</span><span lang="en">GRU and LSTM did not beat it</span><small><span lang="pt-BR">Com 100 motores de treino, a rede não superou as variáveis feitas à mão.</span><span lang="en">With 100 training engines, the network did not beat the hand-built features.</span></small></span></li></ul>
+          <ul class="rows span-4 start-9"><li><span class="rows__name"><span lang="pt-BR">A regressão à média continua</span><span lang="en">Regression to the mean remains</span><small><span lang="pt-BR">50% dos motores ainda têm a vida útil superestimada, o erro mais caro em manutenção.</span><span lang="en">50% of the engines still have their remaining life overestimated, the costliest error in maintenance.</span></small></span></li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="sgtcc" aria-labelledby="sgtcc-h">
+    <div class="wrap grid grid--top">
+      <div class="span-6">
+        <div class="section-head">
+          <h2 id="sgtcc-h"><span lang="pt-BR">SGTCC: API para gerenciar TCC</span><span lang="en">SGTCC: an API to manage final-year projects</span></h2>
+          <p><span lang="pt-BR">API REST em Java 17 e Spring Boot que reúne alunos, orientadores e coordenação. Projeto de equipe de POO II na UVV, em desenvolvimento; atuo principalmente no backend. Antes de programar, o grupo entrevistou 9 pessoas.</span><span lang="en">A REST API in Java 17 and Spring Boot that brings together students, advisors and coordination. A team project for OOP II at UVV, in development; I work mainly on the backend. Before coding, the group interviewed 9 people.</span></p>
+        </div>
+        <p class="links"><a href="https://github.com/andradebianca/final-project-management" rel="noopener"><span lang="pt-BR">Repositório da equipe</span><span lang="en">Team repository</span></a></p>
+        <p class="note stack-notes"><span lang="pt-BR">Projeto acadêmico, sem fins comerciais. A versão hospedada ainda não está disponível, então não há demonstração pública.</span><span lang="en">An academic project, not commercial. The hosted version is not available yet, so there is no public demo.</span></p>
+      </div>
+      <div class="span-6 start-7">
+        <figure class="shot shot--pad" data-visual>
+          <svg class="dg" viewBox="0 0 380 318" role="img" aria-label="Camadas da API do SGTCC: requisição HTTP, Spring Security com JWT, controller, service, repository e banco PostgreSQL" data-aria-en="Layers of the SGTCC API: HTTP request, Spring Security with JWT, controller, service, repository and PostgreSQL database">
+            <g class="dg__arrows"><path d="M190 42v14M190 98v14M190 154v14M190 210v14M190 266v14"/><path d="m185 51 5 5 5-5M185 107l5 5 5-5M185 163l5 5 5-5M185 219l5 5 5-5M185 275l5 5 5-5"/></g>
+            <g class="dg__boxes"><rect x="0" y="0" width="380" height="42" rx="10"/><rect x="0" y="56" width="380" height="42" rx="10"/><rect x="0" y="112" width="380" height="42" rx="10"/><rect x="0" y="168" width="380" height="42" rx="10"/><rect x="0" y="224" width="380" height="42" rx="10"/><rect x="0" y="280" width="380" height="38" rx="10"/></g>
+            <g class="dg__text"><text x="16" y="26">HTTP · REST</text><text x="16" y="82">Spring Security · JWT</text><text x="16" y="138">Controller · DTOs</text><text x="16" y="194">Service</text><text x="16" y="250">Repository</text><text x="16" y="304">PostgreSQL</text></g>
+            <g class="dg__notes"><text x="364" y="137" text-anchor="end">OpenAPI · Swagger</text><text x="364" y="303" text-anchor="end"><tspan lang="pt-BR">H2 nos testes</tspan><tspan lang="en">H2 in tests</tspan></text></g>
+          </svg>
+        </figure>
+        <ul class="rows">
+          <li><span class="rows__name"><span lang="pt-BR">Implementado</span><span lang="en">Done</span><small><span lang="pt-BR">Login com JWT, cadastro e consulta de alunos e orientadores, áreas de interesse.</span><span lang="en">JWT login, registration and lookup of students and advisors, areas of interest.</span></small></span></li>
+          <li><span class="rows__name"><span lang="pt-BR">Em andamento</span><span lang="en">In progress</span><small><span lang="pt-BR">TCC e vínculo com alunos, solicitações de orientação, controle de acesso por perfil.</span><span lang="en">Final project and student link, advising requests, role-based access control.</span></small></span></li>
+          <li><span class="rows__name"><span lang="pt-BR">Planejado</span><span lang="en">Planned</span><small><span lang="pt-BR">Recomendação de orientador por tema, entregas e versões, bancas e notificações.</span><span lang="en">Advisor recommendation by topic, deliveries and versions, committees and notifications.</span></small></span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section g2" id="conquistas" aria-labelledby="conquistas-h">
+    <div class="wrap">
+      <div class="grid grid--top">
+        <div class="span-6">
+          <div class="section-head">
+            <h2 id="conquistas-h"><span lang="pt-BR">Conquistas e eventos no SENAI</span><span lang="en">Achievements and events at SENAI</span></h2>
+          </div>
+          <ul class="rows">
+            <li><span class="rows__name"><span lang="pt-BR">2º lugar no Grand Prix SENAI de Inovação América Latina</span><span lang="en">2nd place at the SENAI Innovation Grand Prix, Latin America</span><small><span lang="pt-BR">Monitoramento em tempo real e manutenção preditiva, em equipe de quatro pessoas. O prêmio é da equipe.</span><span lang="en">Real-time monitoring and predictive maintenance, in a team of four. The award belongs to the team.</span> <a href="assets/img/cert-grand-prix.webp"><span lang="pt-BR">Ver certificado</span><span lang="en">View certificate</span></a></small></span><span class="rows__value"><span lang="pt-BR">nov 2024</span><span lang="en">Nov 2024</span></span></li>
+            <li><span class="rows__name"><span lang="pt-BR">Competidor na WorldSkills Brasil, Seletiva Nacional</span><span lang="en">Competitor at WorldSkills Brasil, National Selection</span><small><span lang="pt-BR">Ocupação Indústria 4.0, pelo SENAI Espírito Santo, com Node-RED e Grafana.</span><span lang="en">Industry 4.0 skill, for SENAI Espírito Santo, with Node-RED and Grafana.</span> <a href="assets/img/cert-worldskills.webp"><span lang="pt-BR">Ver certificado</span><span lang="en">View certificate</span></a></small></span><span class="rows__value"><span lang="pt-BR">set 2025</span><span lang="en">Sep 2025</span></span></li>
+            <li><span class="rows__name"><span lang="pt-BR">Monitor no ESX Innovation Experience</span><span lang="en">Monitor at ESX Innovation Experience</span><small><span lang="pt-BR">Senai Regional Vitória, 12 h.</span><span lang="en">Senai Regional Vitória, 12 hours.</span> <a href="assets/img/cert-esx.webp"><span lang="pt-BR">Ver certificado</span><span lang="en">View certificate</span></a></small></span><span class="rows__value"><span lang="pt-BR">jul 2025</span><span lang="en">Jul 2025</span></span></li>
+            <li><span class="rows__name"><span lang="pt-BR">Monitor no Mundo SENAI</span><span lang="en">Monitor at Mundo SENAI</span><small><span lang="pt-BR">Senai Beira Mar, 4 h.</span><span lang="en">Senai Beira Mar, 4 hours.</span> <a href="assets/img/cert-mundo-senai.webp"><span lang="pt-BR">Ver certificado</span><span lang="en">View certificate</span></a></small></span><span class="rows__value"><span lang="pt-BR">jun 2025</span><span lang="en">Jun 2025</span></span></li>
+            <li><span class="rows__name"><span lang="pt-BR">Participante do Fórum IEL de Gestão</span><span lang="en">Attendee at the IEL Management Forum</span></span><span class="rows__value">2025</span></li>
+          </ul>
+        </div>
+        <figure class="develop span-6 start-7" data-moment="picture-develops"><img src="assets/img/worldskills-inicio.webp" srcset="assets/img/worldskills-inicio-480.webp 480w, assets/img/worldskills-inicio-720.webp 720w, assets/img/worldskills-inicio.webp 900w" sizes="(max-width: 767px) calc(100vw - 48px), 640px" width="900" height="1200" loading="lazy" alt="Dois competidores com jaquetas azuis diante do estande da WorldSkills Brasil" data-alt-en="Two competitors in blue jackets at the WorldSkills Brasil booth"></figure>
+      </div>
+      <div class="grid grid--top">
+        <div class="span-5">
+          <div class="section-head">
+            <h3 class="t-h2"><span lang="pt-BR">Certificados de dados, Java e IA</span><span lang="en">Data, Java and AI certificates</span></h3>
+            <p><span lang="pt-BR">Os que têm link abrem em imagem inteira.</span><span lang="en">Those with a link open as a full image.</span></p>
+          </div>
+        </div>
+        <ul class="rows span-6 start-7">
+          <li><span class="rows__name">Oracle Academy · Java Fundamentals<small><a href="assets/img/cert-java.webp"><span lang="pt-BR">Ver certificado</span><span lang="en">View certificate</span></a></small></span><span class="rows__value"><span lang="pt-BR">nov 2026</span><span lang="en">Nov 2026</span></span></li>
+          <li><span class="rows__name">Kaggle · Intro to Machine Learning<small><a href="assets/img/cert-kaggle.webp"><span lang="pt-BR">Ver certificado</span><span lang="en">View certificate</span></a></small></span><span class="rows__value"><span lang="pt-BR">out 2026</span><span lang="en">Oct 2026</span></span></li>
+          <li><span class="rows__name">Fundação Bradesco · Análise de Dados no Power BI<small><span lang="pt-BR">Curso de 4 h</span><span lang="en">4-hour course</span></small></span><span class="rows__value"><span lang="pt-BR">set 2026</span><span lang="en">Sep 2026</span></span></li>
+          <li><span class="rows__name">Fundação Bradesco · Microsoft Excel 2016 Avançado<small><span lang="pt-BR">Curso de 30 h</span><span lang="en">30-hour course</span></small></span><span class="rows__value"><span lang="pt-BR">jul–ago 2026</span><span lang="en">Jul–Aug 2026</span></span></li>
+          <li><span class="rows__name">Oracle Academy · Database Foundations<small><a href="assets/img/cert-oracle.webp"><span lang="pt-BR">Ver certificado</span><span lang="en">View certificate</span></a></small></span><span class="rows__value"><span lang="pt-BR">fev 2026</span><span lang="en">Feb 2026</span></span></li>
+                  </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer closing" id="contato" aria-labelledby="close-h">
+  <div class="wrap">
+    <div class="closing__cta close--type">
+      <div class="section-head">
+        <h2 id="close-h"><span lang="pt-BR">Contato: vamos conversar</span><span lang="en">Contact: let's talk</span></h2>
+        <p class="t-lead"><span lang="pt-BR">Recrutadores e empresas: escrevam sobre estágio, projetos e colaboração.</span><span lang="en">Recruiters and companies: write about internships, projects and collaboration.</span></p>
+      </div>
+      <a class="btn btn--primary btn--xl" href="mailto:davievoraqs@gmail.com"><span lang="pt-BR">Enviar e-mail</span><span lang="en">Send email</span><svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
+    </div>
+    <div class="closing__links">
+      <div class="grid">
+        <div class="span-4 stack-5">
+          <a class="nav__logo" href="#top"><span class="mark" data-mark="ring" aria-hidden="true"></span>David Évora</a>
+          <p class="footer__lede"><span lang="pt-BR">Engenharia de software, dados e IA. Vila Velha, ES.</span><span lang="en">Software engineering, data and AI. Vila Velha, Brazil.</span></p>
+        </div>
+        <div class="span-4 start-5 footer__col"><h3><span lang="pt-BR">Contato</span><span lang="en">Contact</span></h3>
+          <ul>
+            <li><a href="mailto:davievoraqs@gmail.com">davievoraqs@gmail.com</a><button class="copy" type="button" data-copy="davievoraqs@gmail.com"><span lang="pt-BR">Copiar</span><span lang="en">Copy</span></button></li>
+            <li><a href="https://wa.me/5527997059161" rel="noopener">WhatsApp +55 27 99705-9161</a></li>
+            <li><a href="tel:+5527997059161"><span lang="pt-BR">Ligar</span><span lang="en">Call</span> +55 27 99705-9161</a><button class="copy" type="button" data-copy="+55 27 99705-9161"><span lang="pt-BR">Copiar</span><span lang="en">Copy</span></button></li>
+          </ul>
+        </div>
+        <div class="span-4 start-9 footer__col"><h3><span lang="pt-BR">Perfis</span><span lang="en">Profiles</span></h3>
+          <ul>
+            <li><a href="https://www.linkedin.com/in/david-evora/" rel="noopener">LinkedIn</a></li>
+            <li><a href="https://github.com/David-Evora" rel="noopener">GitHub</a></li>
+            <li><a href="https://huggingface.co/David-Evora" rel="noopener">Hugging Face</a></li>
+            <li><a href="https://www.kaggle.com/davidevora" rel="noopener">Kaggle</a></li>
+          </ul>
+        </div>
+      </div>
+      <span class="sr" role="status" aria-live="polite" id="live"></span>
+      <div class="footer__legal">
+        <span>&copy; 2026 David Évora</span>
+        <span><span lang="pt-BR">Site estático, sem rastreadores. Atualizado em novembro de 2026.</span><span lang="en">Static site, no trackers. Updated in November 2026.</span></span>
+      </div>
+    </div>
+  </div>
+</footer>
+<script type="module" src="assets/system.js"></script>
+<script type="module" src="assets/motion/motion.js"></script>
+<script type="module" src="assets/layout/layout.js"></script>
+<script>
+/* Idioma, tema e cópia de contatos. Menu, foco, rolagem e movimento vêm do kit (assets/system.js e motion). */
+(function () {
+  "use strict";
+  var d = document, root = d.documentElement;
+  function $(s, c) { return (c || d).querySelector(s); }
+  function $$(s, c) { return Array.prototype.slice.call((c || d).querySelectorAll(s)); }
+  function save(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+  function lang() { return root.getAttribute("data-lang") === "en" ? "en" : "pt"; }
+  var T = { pt: { copied: "Copiado para a área de transferência" }, en: { copied: "Copied to the clipboard" } };
+  var docTitle = d.title;
+
+  function setLang(l, persist) {
+    root.setAttribute("data-lang", l);
+    root.lang = l === "en" ? "en" : "pt-BR";
+    if (persist) save("de-lang", l);
+    $$("[data-aria-en]").forEach(function (el) {
+      if (!el.hasAttribute("data-aria-pt")) el.setAttribute("data-aria-pt", el.getAttribute("aria-label") || "");
+      el.setAttribute("aria-label", l === "en" ? el.getAttribute("data-aria-en") : el.getAttribute("data-aria-pt"));
+    });
+    $$("[data-alt-en]").forEach(function (im) {
+      if (!im.hasAttribute("data-alt-pt")) im.setAttribute("data-alt-pt", im.getAttribute("alt") || "");
+      im.setAttribute("alt", l === "en" ? im.getAttribute("data-alt-en") : im.getAttribute("data-alt-pt"));
+    });
+    $$("meta[data-en]").forEach(function (m) {
+      if (!m.hasAttribute("data-pt")) m.setAttribute("data-pt", m.getAttribute("content") || "");
+      m.setAttribute("content", l === "en" ? m.getAttribute("data-en") : m.getAttribute("data-pt"));
+    });
+    d.title = l === "en" ? "David Évora · Software Engineering · Data · AI" : docTitle;
+  }
+  setLang(lang(), false);
+  $("#lang-btn").addEventListener("click", function () { setLang(lang() === "en" ? "pt" : "en", true); });
+
+  var mq = window.matchMedia ? window.matchMedia("(prefers-color-scheme: dark)") : { matches: false };
+  function theme() { return root.getAttribute("data-theme") || (mq.matches ? "dark" : "light"); }
+  function themeColor() {
+    var m = $('meta[name="theme-color"]');
+    if (m) m.setAttribute("content", theme() === "dark" ? "#0d0e10" : "#eef0f3");
+  }
+  themeColor();
+  $("#theme-btn").addEventListener("click", function () {
+    var n = theme() === "dark" ? "light" : "dark";
+    root.setAttribute("data-theme", n);
+    save("de-theme", n);
+    themeColor();
+  });
+  if (mq.addEventListener) mq.addEventListener("change", themeColor);
+
+  var live = $("#live");
+  $$("[data-copy]").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var txt = b.getAttribute("data-copy");
+      function ok() {
+        b.classList.add("is-copied");
+        live.textContent = ""; window.setTimeout(function () { live.textContent = T[lang()].copied; }, 30);
+        window.setTimeout(function () { b.classList.remove("is-copied"); }, 2000);
+      }
+      function fallback() {
+        // shortcut: execCommand("copy") is deprecated; kept as the fallback where clipboard.writeText is refused
+        var a = b.parentNode.querySelector("a");
+        var r = d.createRange(); r.selectNodeContents(a);
+        var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+        try { if (d.execCommand("copy")) ok(); } catch (e) {}
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(txt).then(ok, fallback);
+      else fallback();
+    });
+  });
+
+  // seção atual na barra (aria-current="location")
+  var links = $$('.nav__link[href^="#"]');
+  if ("IntersectionObserver" in window && links.length) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        var id = e.target.id === "infofrota-fluxo" || e.target.id === "validacao" || e.target.id === "cmapss" || e.target.id === "sgtcc" ? "infofrota" : e.target.id === "contato" ? "contato" : e.target.id;
+        links.forEach(function (l) {
+          if (l.getAttribute("href") === "#" + id) l.setAttribute("aria-current", "location"); else l.removeAttribute("aria-current");
+        });
+      });
+    }, { rootMargin: "-45% 0px -50% 0px" });
+    $$("main > section[id], footer[id]").forEach(function (s) { io.observe(s); });
+  }
+})();
+</script>
+</body>
+</html>

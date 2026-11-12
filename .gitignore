@@ -1,0 +1,7 @@
+# Python e sistema operacional
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.DS_Store
+Thumbs.db
