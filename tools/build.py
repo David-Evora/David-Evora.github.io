@@ -30,6 +30,8 @@ def font_css():
 
 # imagens com versões menores (tools/make-variants.py): ganham srcset; as demais ficam como estão
 HALF = ("hero", "worldskills-competicao", "worldskills-inicio", "infofrota-hero-light", "infofrota-hero-dark")
+SIZES_THUMB = "(max-width: 767px) 280px, 300px"
+THUMBS = ("cert-java", "cert-kaggle", "cert-oracle")
 SIZES_HALF = "(max-width: 767px) calc(100vw - 48px), 640px"
 SIZES_WIDE = "(max-width: 767px) calc(100vw - 48px), 1280px"
 
@@ -42,7 +44,7 @@ def add_srcset(html):
             return m.group(0)
         full = Image_width(name)
         cands = ", ".join([f"assets/img/{name}-{w}.webp {w}w" for w in found] + [f"assets/img/{name}.webp {full}w"])
-        sizes = SIZES_HALF if name in HALF else SIZES_WIDE
+        sizes = SIZES_THUMB if name in THUMBS else (SIZES_HALF if name in HALF else SIZES_WIDE)
         return f'{m.group(1)}src="assets/img/{name}.webp" srcset="{cands}" sizes="{sizes}"'
     return re.sub(r'(<img\b[^>]*?)src="assets/img/([a-z0-9-]+)\.webp"', sub, html)
 

@@ -9,7 +9,8 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 IMG = os.path.join(ROOT, "assets", "img")
 NAMES = ["hero", "worldskills-competicao", "worldskills-inicio",
          "infofrota-hero-light", "infofrota-hero-dark", "infofrota-dados",
-         "infofrota-ia-light", "infofrota-ia-dark", "infofrota-tecnologia", "infofrota-automacao"]
+         "infofrota-ia-light", "infofrota-ia-dark", "infofrota-tecnologia", "infofrota-automacao",
+         "cert-java", "cert-kaggle", "cert-oracle"]
 WIDTHS = [480, 720, 1200]
 
 for n in NAMES:
